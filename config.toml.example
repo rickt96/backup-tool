@@ -19,7 +19,7 @@ dirs = [
     "DCIM/ScreenRecorder",
     "Download",
     "Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images",
-    { "path": "Download", "mode": "move" } # modalità move
+    { "path" = "Download", "mode" = "move" } # modalità move
 ]
 
 [phones.sample_ftp]
@@ -31,6 +31,6 @@ password = ""
 workers = 4
 encoding = "latin-1"
 dirs = [
-    { "path": "Download", "mode": "copy" }
+    { "path" = "Download", "mode" = "copy" }
 ]
 
