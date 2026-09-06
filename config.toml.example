@@ -1,0 +1,36 @@
+# Cartella di scarico locale. Ogni telefono finisce in <dest>/<nome>/...
+dest = "D:/Backup/Telefoni"
+
+# --- Un blocco [phones.<nome>] per telefono -----------------------------------
+# transport = "ftp"  -> host/port/user/password  (app FTP server sul telefono)
+# transport = "local"-> root = percorso/lettera unità di un telefono montato
+# dirs               -> elenco cartelle da salvare, relative alla radice del telefono.
+#                       Ogni voce: "cartella"  (copia, default)
+#                              oppure  { path = "cartella", mode = "move" }  (sposta:
+#                              cancella dal telefono dopo copia verificata)
+# workers            -> download FTP paralleli (default 4)
+
+[phones.sample_local]
+transport = "local"
+root = "E:/"
+dirs = [
+    "DCIM/Camera", # modalità copy di default
+    "DCIM/Screenshots",
+    "DCIM/ScreenRecorder",
+    "Download",
+    "Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images",
+    { "path": "Download", "mode": "move" } # modalità move
+]
+
+[phones.sample_ftp]
+transport = "ftp"
+host = "192.168.1.123"
+port = 8888
+user = ""
+password = ""
+workers = 4
+encoding = "latin-1"
+dirs = [
+    { "path": "Download", "mode": "copy" }
+]
+
